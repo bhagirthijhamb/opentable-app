@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCity } from './../../actions/restaurantActions';
 
@@ -38,6 +39,11 @@ class CityForm extends Component {
         )
     }
 }
+
+CityForm.propTypes = {
+    getCity: PropTypes.func.isRequired
+}
+
 const mapStateToProps = (state) => {if(state.restaurants){
     return({
         city: state.restaurants.city

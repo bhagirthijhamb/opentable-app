@@ -11,10 +11,12 @@ import store from './store/store';
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
+      <div className="App wrapper">
         <Header />
-        <CityForm />
-        <Restaurants />
+        <main>
+          <CityForm />
+          <Restaurants />
+        </main>
       </div>
     </Provider>
   );

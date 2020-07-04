@@ -17,10 +17,6 @@ class CityForm extends Component {
             city: e.target.value
         })
         this.props.getCity(this.state.city)
-
-        // setTimeout(() => this.setState({
-        //     city: ''
-        // }), 5000)
     }
 
     render() {
@@ -44,14 +40,14 @@ CityForm.propTypes = {
     getCity: PropTypes.func.isRequired
 }
 
-const mapStateToProps = (state) => {if(state.restaurants){
-    return({
-        city: state.restaurants.city
-    })
-} else {
-    return {
-        city: ''
-    }
-}}
+const mapStateToProps = (state) => {
+    return state.restaurants
+      ? {
+          city: state.restaurants.city,
+        }
+      : {
+          city: "",
+        };     
+}
 
 export default connect(mapStateToProps, { getCity })(CityForm);

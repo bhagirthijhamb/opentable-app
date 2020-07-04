@@ -6,6 +6,7 @@ import { Provider } from 'react-redux';
 import Header from './components/header/Header'
 import CityForm from './components/cityForm/CityForm';
 import Restaurants from './components/restaurants/Restaurants';
+import Footer from './components/footer/Footer';
 import store from './store/store';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <CityForm />
           <Restaurants />
         </main>
+        <Footer />
       </div>
     </Provider>
   );

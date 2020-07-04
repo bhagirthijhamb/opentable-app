@@ -1,29 +1,104 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { fetchRestaurants } from './../../actions/restaurantActions';
 
 
 class Restaurants extends Component {
-    render() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      filter: ""
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = (e) => {
+    this.props.fetchRestaurants(this.props.city);
+  };
+
+  updateSearch(e) {
+    this.setState({
+      filter: e.target.value.substr(0, 15),
+    });
+  }
+
+  render() {
+    let filteredRestaurants, cityRestaurants;
+
+    if (this.props.restaurants) {
+      filteredRestaurants = this.props.restaurants.filter((restaurant) => {
         return (
-          <div>
-            <button className="findButton">Find Restaurants</button>
-            <br />
-            <input
-              className="searchInput"
-              type="text"
-              placeholder="Search by name"
-              //   value={this.state.search}
-              //   onChange={this.updateSearch.bind(this)}
-            />
-            <input
-              className="searchInput"
-              type="text"
-              placeholder="Search by address"
-              //   value={this.state.search}
-              //   onChange={this.updateSearch.bind(this)}
-            />
-          </div>
+          restaurant.address
+            .toLowerCase()
+            .indexOf(this.state.filter.toLowerCase()) !== -1
         );
+      });
     }
+
+    if (filteredRestaurants) {
+      cityRestaurants = filteredRestaurants.map((restaurant) => (
+        <div className="restaurantDetails" key={restaurant.id}>
+          <h3 className="restaurantName" data-testid="name">
+            Name: {restaurant.name}
+          </h3>
+          <p className="restaurantAddress" data-testid="address">
+            Address: {restaurant.address}
+          </p>
+          <p className="restaurantPrice" data-testid="price">
+            Price: {restaurant.price}
+          </p>
+        </div>
+      ));
+    }
+
+    return (
+      <div>
+        <button
+          className="findButton"
+          data-testid="findButton"
+          onClick={(e) => this.handleClick(e)}
+        >
+          Find Restaurants
+        </button>
+        <br />
+        <hr />
+        <label htmlFor="filterRestaurants">Filter: </label>
+        <input
+          id="filterRestaurants"
+          className="searchInput"
+          type="text"
+          placeholder="Filter by address"
+          value={this.state.search}
+          onChange={this.updateSearch.bind(this)}
+          data-testid="filterInput"
+        />
+
+        <div className="restaurantList" data-testid="restaurantList">
+          {cityRestaurants}
+        </div>
+      </div>
+    );
+  }
 }
 
-export default Restaurants;
+Restaurants.propTypes = {
+    fetchRestaurants: PropTypes.func.isRequired,
+    restaurants: PropTypes.array.isRequired
+};
+
+const mapStateToProps = (state) => {
+  if (state.items) {
+    return {
+      city: state.city,
+      restaurants: state.items,
+    };
+  } else {
+    return {
+      city: state.city,
+      restaurants: [],
+    };
+  }
+};
+
+export default connect(mapStateToProps, { fetchRestaurants })(Restaurants);

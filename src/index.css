@@ -22,8 +22,10 @@ code {
 }
 
 .wrapper {
-  max-width: 1200px;
+  max-width: 1400px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header */
@@ -45,6 +47,11 @@ header h1 {
  main {
     max-width: 769px;
     padding: 15px;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
  }
 
 /* City Form */
@@ -76,3 +83,47 @@ input:hover {
   margin: 10px 5px;  
 }
 
+.restaurantList {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /*no media query required*/
+  grid-column-gap: 1.2rem;
+  grid-row-gap: 1rem;
+  justify-items: center;
+}
+
+.restaurantDetails {
+   display: inline-block;
+   width: 350px;
+   text-align: left;
+   margin: 15px;
+   padding: 15px;
+   background-color: #fff;
+   border-radius: 8px;
+   box-shadow: 0px, 0px, 10px, rgba(0, 0, 0, 0.3);
+   border: 1px solid #fff;
+   transition: all 0.2s ease-out;
+   overflow: hidden;
+}
+
+.restaurantDetails:hover{
+  transform: scale(1.02);
+  box-shadow: 0px, 0px, 13px, rgba(0, 0, 0, 0.4);
+  border: 1px solid rgb(196, 194, 194);
+}
+
+.restaurantName {
+  font-weight: 700;
+}
+
+.restaurantAddress {
+  font-size: .9rem;
+  line-height: 1.8;
+  font-style: italic;
+}
+
+.restaurantPrice {
+  font-size: .9rem;
+  font-weight: 600;
+}

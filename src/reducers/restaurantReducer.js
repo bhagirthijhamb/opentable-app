@@ -12,7 +12,14 @@ export function rootReducer(state = initialState, action) {
                ...state,
                city: action.payload,
              };
+
+            case FETCH_RESTAURANTS:
+                return {
+                    ...state,
+                    items: action.payload
+                }
+
            default:
              return state;
          }
-       }
+}

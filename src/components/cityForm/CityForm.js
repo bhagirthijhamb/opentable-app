@@ -18,25 +18,25 @@ class CityForm extends Component {
         })
         this.props.getCity(this.state.city)
 
-        setTimeout(() => this.setState({
-            city: ''
-        }), 5000)
+        // setTimeout(() => this.setState({
+        //     city: ''
+        // }), 5000)
     }
 
     render() {
-        console.log(this.state.city);
-        return(
-            <div>
-                <label htmlFor="city">City: </label>
-                <input 
-                    type="text"
-                    id="city"
-                    value={this.state.city}
-                    placeholder="Enter City name"
-                    onChange={this.handleChange}
-                />
-            </div>
-        )
+        return (
+          <div>
+            <label htmlFor="city">City: </label>
+            <input
+              type="text"
+              id="city"
+              value={this.state.city}
+              placeholder="Enter City name"
+              onChange={this.handleChange}
+              data-testid="yourCity"
+            />
+          </div>
+        );
     }
 }
 

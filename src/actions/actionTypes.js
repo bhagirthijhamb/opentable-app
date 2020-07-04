@@ -1,2 +1,0 @@
-export const FETCH_RESTAURANTS = 'FETCH_RESTAURANTS';
-export const GET_CITY = 'GET_CITY';

@@ -8,7 +8,8 @@ class Restaurants extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      filter: ""
+      addressFilter: "",
+      priceFilter: 0
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -17,27 +18,46 @@ class Restaurants extends Component {
     this.props.fetchRestaurants(this.props.city);
   };
 
-  updateSearch(e) {
+  // Handle adress filter
+  handleAddressFilter(e) {
     this.setState({
-      filter: e.target.value.substr(0, 15),
+      addressFilter: e.target.value.substr(0, 15),
+    });
+  }
+
+  // Handle price filter
+  handlePriceFilter(e) {
+    this.setState({
+      priceFilter: e.target.value
     });
   }
 
   render() {
-    let filteredRestaurants, cityRestaurants;
+    let filteredRestaurants, moreFilteredRestaurants, cityRestaurants;
 
     if (this.props.restaurants) {
       filteredRestaurants = this.props.restaurants.filter((restaurant) => {
         return (
           restaurant.address
             .toLowerCase()
-            .indexOf(this.state.filter.toLowerCase()) !== -1
+            .indexOf(this.state.addressFilter.toLowerCase()) !== -1
         );
       });
+
+      if(0 < this.state.priceFilter && this.state.priceFilter < 5){
+        moreFilteredRestaurants = filteredRestaurants.filter(restaurant => {
+          return (
+            restaurant.price == this.state.priceFilter
+          )
+        }
+        )}
+        else {
+          moreFilteredRestaurants = [...filteredRestaurants];
+        }
     }
 
-    if (filteredRestaurants) {
-      cityRestaurants = filteredRestaurants.map((restaurant) => (
+    if (moreFilteredRestaurants) {
+      cityRestaurants = moreFilteredRestaurants.map((restaurant) => (
         <div className="restaurantDetails" key={restaurant.id}>
           <h3 className="restaurantName" data-testid="name">
             Name: {restaurant.name}
@@ -63,15 +83,26 @@ class Restaurants extends Component {
         </button>
         <br />
         <hr />
-        <label htmlFor="filterRestaurants">Filter: </label>
+        <label htmlFor="filterRestaurants">Filter by Address: </label>
         <input
           id="filterRestaurants"
           className="searchInput"
           type="text"
-          placeholder="Filter by address"
+          placeholder="street address"
           value={this.state.search}
-          onChange={this.updateSearch.bind(this)}
+          onChange={this.handleAddressFilter.bind(this)}
           data-testid="filterInput"
+        />
+
+        <label htmlFor="filterRestaurants">Filter by Price: </label>
+        <input
+          id="filterRestaurants"
+          className="searchInput"
+          type="text"
+          placeholder="(1 - 4)"
+          value={this.state.search}
+          onChange={this.handlePriceFilter.bind(this)}
+          data-testid=""
         />
 
         <div className="restaurantList" data-testid="restaurantList">

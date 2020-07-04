@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/bhagirthijhamb/opentable-app/static/css/main.a150f9b9.chunk.css",
-    "main.js": "/bhagirthijhamb/opentable-app/static/js/main.6ffabbbc.chunk.js",
-    "main.js.map": "/bhagirthijhamb/opentable-app/static/js/main.6ffabbbc.chunk.js.map",
-    "runtime-main.js": "/bhagirthijhamb/opentable-app/static/js/runtime-main.88e11c78.js",
-    "runtime-main.js.map": "/bhagirthijhamb/opentable-app/static/js/runtime-main.88e11c78.js.map",
-    "static/js/2.b740c5fc.chunk.js": "/bhagirthijhamb/opentable-app/static/js/2.b740c5fc.chunk.js",
-    "static/js/2.b740c5fc.chunk.js.map": "/bhagirthijhamb/opentable-app/static/js/2.b740c5fc.chunk.js.map",
-    "index.html": "/bhagirthijhamb/opentable-app/index.html",
-    "precache-manifest.d4f323e3e6729ec67008adcf6b8dc315.js": "/bhagirthijhamb/opentable-app/precache-manifest.d4f323e3e6729ec67008adcf6b8dc315.js",
-    "service-worker.js": "/bhagirthijhamb/opentable-app/service-worker.js",
-    "static/css/main.a150f9b9.chunk.css.map": "/bhagirthijhamb/opentable-app/static/css/main.a150f9b9.chunk.css.map",
-    "static/js/2.b740c5fc.chunk.js.LICENSE.txt": "/bhagirthijhamb/opentable-app/static/js/2.b740c5fc.chunk.js.LICENSE.txt"
+    "main.css": "/opentable-app/static/css/main.a150f9b9.chunk.css",
+    "main.js": "/opentable-app/static/js/main.7271eb75.chunk.js",
+    "main.js.map": "/opentable-app/static/js/main.7271eb75.chunk.js.map",
+    "runtime-main.js": "/opentable-app/static/js/runtime-main.e1db9d0a.js",
+    "runtime-main.js.map": "/opentable-app/static/js/runtime-main.e1db9d0a.js.map",
+    "static/js/2.b740c5fc.chunk.js": "/opentable-app/static/js/2.b740c5fc.chunk.js",
+    "static/js/2.b740c5fc.chunk.js.map": "/opentable-app/static/js/2.b740c5fc.chunk.js.map",
+    "index.html": "/opentable-app/index.html",
+    "precache-manifest.1696b0d80a02a4b96c805665849b321b.js": "/opentable-app/precache-manifest.1696b0d80a02a4b96c805665849b321b.js",
+    "service-worker.js": "/opentable-app/service-worker.js",
+    "static/css/main.a150f9b9.chunk.css.map": "/opentable-app/static/css/main.a150f9b9.chunk.css.map",
+    "static/js/2.b740c5fc.chunk.js.LICENSE.txt": "/opentable-app/static/js/2.b740c5fc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.88e11c78.js",
+    "static/js/runtime-main.e1db9d0a.js",
     "static/js/2.b740c5fc.chunk.js",
     "static/css/main.a150f9b9.chunk.css",
-    "static/js/main.6ffabbbc.chunk.js"
+    "static/js/main.7271eb75.chunk.js"
   ]
 }

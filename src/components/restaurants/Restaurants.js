@@ -9,7 +9,7 @@ class Restaurants extends Component {
     super(props);
     this.state = {
       addressFilter: "",
-      priceFilter: 0
+      priceFilter: ""
     };
     this.handleClick = this.handleClick.bind(this);
   }
@@ -35,7 +35,9 @@ class Restaurants extends Component {
   render() {
     let filteredRestaurants, moreFilteredRestaurants, cityRestaurants;
 
+    
     if (this.props.restaurants) {
+      // Filter for address
       filteredRestaurants = this.props.restaurants.filter((restaurant) => {
         return (
           restaurant.address
@@ -44,6 +46,7 @@ class Restaurants extends Component {
         );
       });
 
+      // Filter for price
       if(0 < this.state.priceFilter && this.state.priceFilter < 5){
         moreFilteredRestaurants = filteredRestaurants.filter(restaurant => {
           return (
@@ -51,11 +54,13 @@ class Restaurants extends Component {
           )
         }
         )}
+        // if price filter not in range, ignore price filtering
         else {
           moreFilteredRestaurants = [...filteredRestaurants];
         }
     }
 
+    // render filtered restaurants
     if (moreFilteredRestaurants) {
       cityRestaurants = moreFilteredRestaurants.map((restaurant) => (
         <div className="restaurantDetails" key={restaurant.id}>
@@ -82,28 +87,39 @@ class Restaurants extends Component {
           Find Restaurants
         </button>
         <br />
-        <hr />
-        <label htmlFor="filterRestaurants">Filter by Address: </label>
-        <input
-          id="filterRestaurants"
-          className="searchInput"
-          type="text"
-          placeholder="street address"
-          value={this.state.search}
-          onChange={this.handleAddressFilter.bind(this)}
-          data-testid="filterInput"
-        />
 
-        <label htmlFor="filterRestaurants">Filter by Price: </label>
-        <input
-          id="filterRestaurants"
-          className="searchInput"
-          type="text"
-          placeholder="(1 - 4)"
-          value={this.state.search}
-          onChange={this.handlePriceFilter.bind(this)}
-          data-testid=""
-        />
+        <hr />
+        
+        <div className="filters">
+          {/* Address filter input */}
+          <div className="addressFilter">
+            <label htmlFor="filterRestaurants">Filter by Address: </label>
+            <input
+              id="filterRestaurants"
+              className="searchInput"
+              type="text"
+              placeholder="street address"
+              value={this.state.addressFilter}
+              onChange={this.handleAddressFilter.bind(this)}
+              data-testid="addressFilterInput"
+            />
+          </div>
+          
+          {/* Price filter input */}
+          <div className="priceFilter">
+            <label htmlFor="filterRestaurants">Filter by Price: </label>
+            <input
+              id="filterRestaurants"
+              className="searchInput"
+              type="text"
+              placeholder="(1 - 4)"
+              value={this.state.priceFilter}
+              onChange={this.handlePriceFilter.bind(this)}
+              data-testid="priceFilterInput"
+            />
+          </div>          
+        </div>
+        
 
         <div className="restaurantList" data-testid="restaurantList">
           {cityRestaurants}

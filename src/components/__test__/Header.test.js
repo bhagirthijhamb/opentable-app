@@ -18,7 +18,7 @@ const renderWithRedux = (
   };
 };
 
-it("renders App Heading", () => {
+it("renders the App Heading", () => {
   const { getByTestId } = renderWithRedux(<Header />);
   expect(getByTestId("mainHeading")).toHaveTextContent("Restaurants in your City"
   );

@@ -18,7 +18,7 @@ const renderWithRedux = (
         };
 };
 
-it("renders without crashing", () => {
+it("renders app without crashing", () => {
   const div = document.createElement("div");
   ReactDOM.render(<input />, div);
 });

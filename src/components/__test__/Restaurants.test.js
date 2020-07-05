@@ -28,7 +28,7 @@ const renderWithRedux = (
    expect(getByTestId("findButton")).toHaveTextContent("Find Restaurants");
  });
 
- it("renders filter input correctly", () => {
+ it("renders address filter input correctly", () => {
    const { getByTestId } = renderWithRedux(<Restaurants />);
-   expect(getByTestId("filterInput")).toHaveTextContent("");
+   expect(getByTestId("addressFilterInput")).toHaveTextContent("");
  });

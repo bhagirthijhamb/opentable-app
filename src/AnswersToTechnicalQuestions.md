@@ -13,22 +13,25 @@
     Link to my blog on Spread Operator -
     https://medium.com/@bhagirthi.jhamb/spread-operator-es6-features-part-1-e4d46e6c1740
 
-        export function rootReducer(state = initialState, action) {
-         switch (action.type) {
-            case GET_CITY:
-             return {
-               ...state,
-               city: action.payload,
-            };
+        if (this.props.restaurants) {
+            filteredRestaurants = this.props.restaurants.filter((restaurant) => {
+                return (
+                restaurant.address
+                    .toLowerCase()
+                    .indexOf(this.state.addressFilter.toLowerCase()) !== -1
+                );
+            });
 
-            case FETCH_RESTAURANTS:
-                return {
-                    ...state,
-                    items: action.payload
+            if(0 < this.state.priceFilter && this.state.priceFilter < 5){
+                moreFilteredRestaurants = filteredRestaurants.filter(restaurant => {
+                    return (
+                        restaurant.price == this.state.priceFilter
+                    )
+                }
+                )
             }
-
-            default:
-             return state;
+            else {
+            moreFilteredRestaurants = [...filteredRestaurants];
             }
         }
 

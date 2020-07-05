@@ -2,9 +2,8 @@
 
 ## 1. How long did you spend on the coding assignment? What would you add to your solution if you had more time? If you didn't spend much time on the coding test then use this as an opportunity to explain what you would add.
 
-    I spent **7 hours** on the coding assignment. 
+    I spent **8-9 hours** on the coding assignment. 
     If I had more time, I would improve the UI of the app. I would also add more error handling use cases.
-
 
 ## 2.  What was the most useful feature that was added to the latest version of your chosen language? Please include a snippet of code that shows how you've used it.
 

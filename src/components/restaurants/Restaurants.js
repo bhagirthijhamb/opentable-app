@@ -64,6 +64,7 @@ class Restaurants extends Component {
     if (moreFilteredRestaurants) {
       cityRestaurants = moreFilteredRestaurants.map((restaurant) => (
         <div className="restaurantDetails" key={restaurant.id}>
+          <a href={restaurant.reserve_url} target="_blank" title="Click to reserve"><img className="restaurantImage" src={restaurant.image_url} alt="restaurant-image" /></a>
           <h3 className="restaurantName" data-testid="name">
             Name: {restaurant.name}
           </h3>
